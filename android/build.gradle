@@ -1,0 +1,35 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'expo.modules.truecaller'
+version = '0.1.0'
+
+def truecallerAndroidEnabled = findProperty('expoTruecallerAndroidEnabled') != 'false'
+
+android {
+  namespace "expo.modules.truecaller"
+  defaultConfig {
+    versionCode 1
+    versionName "0.1.0"
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  lintOptions {
+    abortOnError false
+  }
+  sourceSets {
+    main {
+      java.srcDirs += truecallerAndroidEnabled ? ['src/enabled/java'] : ['src/disabled/java']
+    }
+  }
+}
+
+dependencies {
+  if (truecallerAndroidEnabled) {
+    implementation 'com.truecaller.android.sdk:truecaller-sdk:3.3.0'
+  }
+}
