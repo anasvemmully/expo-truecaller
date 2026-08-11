@@ -19,7 +19,10 @@
     "expo-truecaller",
     "ExpoTruecaller"
   ],
-  "repository": "https://github.com/anasvemmully/expo-truecaller",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anasvemmully/expo-truecaller.git"
+  },
   "bugs": {
     "url": "https://github.com/anasvemmully/expo-truecaller/issues"
   },
