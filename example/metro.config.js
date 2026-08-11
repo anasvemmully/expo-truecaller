@@ -21,7 +21,7 @@ config.resolver.nodeModulesPaths = [
 ];
 
 config.resolver.extraNodeModules = {
-  'expo-truecaller': '..',
+  '@anasvemmully/expo-truecaller': '..',
 };
 
 config.watchFolders = [path.resolve(__dirname, '..')];

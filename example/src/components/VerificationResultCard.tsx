@@ -1,4 +1,4 @@
-import { TruecallerVerificationResult } from 'expo-truecaller';
+import { TruecallerVerificationResult } from '@anasvemmully/expo-truecaller';
 import { StyleSheet, Text, View } from 'react-native';
 
 type Props = {

@@ -1,5 +1,5 @@
 {
-  "name": "expo-truecaller",
+  "name": "@anasvemmully/expo-truecaller",
   "version": "0.1.0",
   "description": "Truecaller integration for Expo",
   "main": "build/index.js",
@@ -29,6 +29,9 @@
   "author": "Muhammed Anas <anasvemmully@gmail.com> (https://github.com/anasvemmully)",
   "license": "MIT",
   "homepage": "https://github.com/anasvemmully/expo-truecaller#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@expo/config-plugins": "^57.0.6"
   },

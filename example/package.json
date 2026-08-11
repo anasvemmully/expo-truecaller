@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
+    "@anasvemmully/expo-truecaller": "file:..",
     "expo": "~57.0.10",
     "expo-linking": "~57.0.5",
     "expo-status-bar": "~57.0.1",
-    "expo-truecaller": "file:..",
     "react": "19.2.3",
     "react-native": "0.86.2"
   },

@@ -1,5 +1,5 @@
+import { useTruecaller } from '@anasvemmully/expo-truecaller';
 import { StatusBar } from 'expo-status-bar';
-import { useTruecaller } from 'expo-truecaller';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 

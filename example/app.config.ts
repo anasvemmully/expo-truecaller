@@ -30,7 +30,7 @@ const config: ExpoConfig = {
   },
   plugins: [
     [
-      'expo-truecaller',
+      '@anasvemmully/expo-truecaller',
       {
         androidClientId: truecallerClientId,
         iosAppKey: truecallerIosAppKey,
