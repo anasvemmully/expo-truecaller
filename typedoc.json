@@ -1,5 +1,6 @@
 {
   "entryPoints": ["src/index.ts", "plugin/src/index.ts"],
+  "tsconfig": "tsconfig.typedoc.json",
   "out": "docs",
   "readme": "README.md",
   "name": "@anasvemmully/expo-truecaller",
@@ -9,6 +10,17 @@
   "githubPages": true,
   "sort": ["source-order"],
   "categorizeByGroup": true,
+  "blockTags": [
+    "@defaultValue", "@deprecated", "@example", "@jsx", "@param",
+    "@privateRemarks", "@remarks", "@returns", "@see", "@throws", "@typeParam",
+    "@author", "@callback", "@category", "@categoryDescription", "@default",
+    "@document", "@extends", "@augments", "@yields", "@group",
+    "@groupDescription", "@import", "@inheritDoc", "@license", "@module",
+    "@mergeModuleWith", "@prop", "@property", "@return", "@satisfies",
+    "@since", "@sortStrategy", "@template", "@this", "@type", "@typedef",
+    "@summary", "@preventInline", "@inlineType", "@preventExpand",
+    "@expandType", "@platform"
+  ],
   "navigationLinks": {
     "GitHub": "https://github.com/anasvemmully/expo-truecaller",
     "npm": "https://www.npmjs.com/package/@anasvemmully/expo-truecaller"
