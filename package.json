@@ -11,7 +11,8 @@
     "test": "node internal/module_scripts/test.js",
     "prepare": "node internal/module_scripts/prepare.js",
     "open:ios": "node internal/module_scripts/open-ios.js",
-    "open:android": "node internal/module_scripts/open-android.js"
+    "open:android": "node internal/module_scripts/open-android.js",
+    "docs": "typedoc"
   },
   "keywords": [
     "react-native",
@@ -48,6 +49,7 @@
     "prettier": "^3.0.0",
     "react": "19.2.3",
     "react-native": "0.86.2",
+    "typedoc": "^0.28.20",
     "typescript": "^5.9.2"
   },
   "jest": {

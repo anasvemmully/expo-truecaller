@@ -58,3 +58,6 @@ yarn-error.log
 
 # TypeScript
 *.tsbuildinfo
+
+# Generated docs site
+/docs

@@ -36,16 +36,22 @@ export type UseTruecallerOptions = {
 };
 
 export type UseTruecallerResult = {
+  /** `true` while the hook's mount-time `isTruecallerUsable()` check is still in flight. */
   isCheckingAvailability: boolean;
 
+  /** Whether the Truecaller one-tap flow can actually be launched on this device. */
   isTruecallerUsable: boolean;
 
+  /** `true` from `requestVerification()` being called until a result arrives. */
   isVerifying: boolean;
 
+  /** The most recent verification result, or `null` before one has arrived. */
   result: TruecallerVerificationResult | null;
 
+  /** Launches the Truecaller one-tap verification flow. */
   requestVerification: (options?: TruecallerRequestVerificationOptions) => Promise<void>;
 
+  /** Clears any Truecaller SDK session state - call this on logout. */
   clearCredentials: () => Promise<void>;
 };
 

@@ -19,3 +19,6 @@ __tests__
 /android/.gradle/
 /android/local.properties
 /example/
+/docs/
+/typedoc.json
+/tsconfig.typedoc.json

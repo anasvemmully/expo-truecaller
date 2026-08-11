@@ -1,0 +1,16 @@
+{
+  "entryPoints": ["src/index.ts", "plugin/src/index.ts"],
+  "out": "docs",
+  "readme": "README.md",
+  "name": "@anasvemmully/expo-truecaller",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "githubPages": true,
+  "sort": ["source-order"],
+  "categorizeByGroup": true,
+  "navigationLinks": {
+    "GitHub": "https://github.com/anasvemmully/expo-truecaller",
+    "npm": "https://www.npmjs.com/package/@anasvemmully/expo-truecaller"
+  }
+}

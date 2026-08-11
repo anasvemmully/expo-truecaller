@@ -13,9 +13,41 @@ import type { URLScheme } from '@expo/config-plugins/build/ios/IosConfig.types';
 
 import pkg from '../../package.json';
 
+/**
+ * Config plugin options for `@anasvemmully/expo-truecaller`, e.g.:
+ *
+ * ```json
+ * {
+ *   "plugins": [
+ *     ["@anasvemmully/expo-truecaller", {
+ *       "androidClientId": "<android-client-id>",
+ *       "iosAppKey": "<ios-app-key>",
+ *       "iosAppLink": "<ios-app-link>"
+ *     }]
+ *   ]
+ * }
+ * ```
+ *
+ * Either platform can be omitted - an unconfigured platform's native SDK
+ * isn't bundled into the build at all (see the `enabled`/`disabled` source
+ * sets in `android/` and `ios/`).
+ */
 export type ExpoTruecallerPluginOptions = {
+  /** Truecaller Android SDK client ID. Omit to skip Android setup entirely. */
   androidClientId?: string;
+
+  /**
+   * Truecaller iOS app key. Must be provided together with `iosAppLink` -
+   * providing one without the other throws at prebuild time. Omit both to
+   * skip iOS setup entirely.
+   */
   iosAppKey?: string;
+
+  /**
+   * Truecaller iOS app link (Universal Link) used for Associated Domains.
+   * Must be provided together with `iosAppKey` - providing one without the
+   * other throws at prebuild time.
+   */
   iosAppLink?: string;
 };
 

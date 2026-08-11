@@ -1,6 +1,6 @@
 /**
- * Consent screen customization for {@link ExpoTruecallerModule.initialize},
- * passed at SDK-init time (matches Android's `TcSdkOptions.Builder` - iOS's
+ * Consent screen customization for `ExpoTruecaller.initialize()`, passed at
+ * SDK-init time (matches Android's `TcSdkOptions.Builder` - iOS's
  * TrueSDK has no equivalent customization API, so these are ignored there).
  *
  * Since the SDK can only really be configured once, these only take effect
