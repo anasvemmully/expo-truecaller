@@ -63,27 +63,26 @@ function VerifyButton() {
 
 ## Platform differences
 
-| | Android | iOS |
-| --- | --- | --- |
-| On success | `authorizationCode` + `codeVerifier` - exchange these at your backend | `profile` - the verified Truecaller profile, handed back directly |
-| Server-side verification | Required (PKCE code exchange) | Optional (`profile.verification` payload/signature, if present) |
-| Manual dismissal | Reported via `status: 'dismissed'` | Not detectable - see [`TruecallerVerificationResult`](https://anasvemmully.github.io/expo-truecaller/) docs |
+|                          | Android                                                               | iOS                                                                                                         |
+| ------------------------ | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| On success               | `authorizationCode` + `codeVerifier` - exchange these at your backend | `profile` - the verified Truecaller profile, handed back directly                                           |
+| Server-side verification | Required (PKCE code exchange)                                         | Optional (`profile.verification` payload/signature, if present)                                             |
+| Manual dismissal         | Reported via `status: 'dismissed'`                                    | Not detectable - see [`TruecallerVerificationResult`](https://anasvemmully.github.io/expo-truecaller/) docs |
 
 ## Documentation
 
-- 📖 [Full API reference](https://anasvemmully.github.io/expo-truecaller/) - generated from the TypeScript source, including all module methods, hook options, and config plugin options.
-- [`example/`](https://github.com/anasvemmully/expo-truecaller/tree/main/example) - a full Expo app using `useTruecaller()`.
-- [`example/server/`](https://github.com/anasvemmully/expo-truecaller/tree/main/example/server) - a reference Go backend performing the Android OAuth code exchange.
+Full docs: **https://anasvemmully.github.io/expo-truecaller/**
+
+- **Tutorial:** [Getting started](./docs/tutorials/getting-started.md)
+- **How-to:** [Exchange the Android code](./docs/how-to/exchange-android-code.md) · [Use the iOS profile](./docs/how-to/use-ios-profile.md) · [Logout and customization](./docs/how-to/handle-logout-and-customization.md)
+- **Explanation:** [Why Android and iOS differ](./docs/explanation/android-vs-ios.md)
+- **Reference:** the generated API docs on the site above
+- [GLOSSARY.md](./GLOSSARY.md) · [Architecture decisions](https://github.com/anasvemmully/expo-truecaller/tree/main/docs/adr) · [CHANGELOG](./CHANGELOG.md)
+- [`example/`](https://github.com/anasvemmully/expo-truecaller/tree/main/example) - a full Expo app; [`example/server/`](https://github.com/anasvemmully/expo-truecaller/tree/main/example/server) - a reference Go backend for the Android exchange.
 
 ## Contributing
 
-```sh
-npm ci
-npm run build
-npm run lint
-```
-
-To run the example app: `cd example`, then `npm run open:ios` / `npm run open:android` from the repo root, or `npx expo start` inside `example/`.
+See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 

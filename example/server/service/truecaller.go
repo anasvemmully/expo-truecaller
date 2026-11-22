@@ -1,13 +1,13 @@
 package service
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
+	"sync"
 
 	"expo-truecaller-example-server/core"
 )
@@ -30,7 +30,19 @@ func ExchangeCodeForToken(cfg *core.Config, authorizationCode, codeVerifier stri
 		return nil, fmt.Errorf("token response had no id_token to decode profile claims from")
 	}
 
-	return decodeIDTokenClaims(token.IDToken)
+	return verifierFor(cfg).Verify(token.IDToken)
+}
+
+var (
+	verifierOnce sync.Once
+	verifier     *Verifier
+)
+
+func verifierFor(cfg *core.Config) *Verifier {
+	verifierOnce.Do(func() {
+		verifier = NewVerifier(cfg.JWKSURL, cfg.Issuer, cfg.TrueCallerClientID)
+	})
+	return verifier
 }
 
 func exchangeCodeForToken(cfg *core.Config, authorizationCode, codeVerifier string) (*tokenResponse, error) {
@@ -67,24 +79,4 @@ func exchangeCodeForToken(cfg *core.Config, authorizationCode, codeVerifier stri
 		return nil, fmt.Errorf("decoding token response: %w", err)
 	}
 	return &token, nil
-}
-
-// decodeIDTokenClaims extracts the JWT payload claims without verifying the
-// signature - see the WARNING on ExchangeCodeForToken.
-func decodeIDTokenClaims(idToken string) (map[string]any, error) {
-	parts := strings.Split(idToken, ".")
-	if len(parts) != 3 {
-		return nil, fmt.Errorf("id_token is not a JWT (expected 3 dot-separated parts, got %d)", len(parts))
-	}
-
-	payload, err := base64.RawURLEncoding.DecodeString(parts[1])
-	if err != nil {
-		return nil, fmt.Errorf("decoding JWT payload: %w", err)
-	}
-
-	var claims map[string]any
-	if err := json.Unmarshal(payload, &claims); err != nil {
-		return nil, fmt.Errorf("parsing JWT payload: %w", err)
-	}
-	return claims, nil
 }
